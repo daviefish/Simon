@@ -7,3 +7,9 @@ the original
 https://en.wikipedia.org/wiki/Simon_(game)
 
 The rules are simple. Repeat the random color pattern displayed by clicking on the colors that light up. The challenge and patterns increase as you progress through the game.
+
+## Colored Buttons
+    ### Different sequenes of colored buttons will light up with sound effects.
+## Random Order of Sequences
+    ### Those patterns increase in length as the progression of the game goes along.
+## User's score will be tallied.
