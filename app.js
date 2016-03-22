@@ -17,17 +17,18 @@ var arr = $.makeArray(fourSquares);
 console.log(fourSquares.length);
 
 // blocks turning white
-var blink = function() {
-  $('.blocks').addClass('flash');
+var blink = function(square) {
+  $(square).addClass('flash');
   setTimeout(function() {
-    $('.blocks').removeClass('flash');
+    $(square).removeClass('flash');
   }, 500)
 }
 
 // making block blink seperately (and random?)
 var blinkArray = function() {
-  for (var i = 0; i < fourSquares.length; i++);
-
+  for (var i = 0; i < arr.length; i++){
+    Math.random((blink(arr[i]), 1700))
+  }
 }
 
 // DOM and node association
