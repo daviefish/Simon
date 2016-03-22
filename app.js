@@ -1,9 +1,30 @@
+
+
 $(document).ready(function(){
 
-$('start').on('click(function(event) {
-  /* Act on the event */
-  var gameStart = $
-});')
+
+//  $('#start').on('click', function(){
+//      $('#container').hide();
+//     $('#gameboard').slideUp();
+//  });
+
+$('#start').on('click', function(){
+      $('#container').removeClass('visible').addClass('hidden');
+      $('.gameboard').removeClass('hidden').addClass('visible');
+      $('#container').hide();
+
+});
+
+
+
+
+
+
+
+
+
+
+});
 
 
 
@@ -28,7 +49,4 @@ $('start').on('click(function(event) {
 
 
 
-
-
-
-  })
+//)}
