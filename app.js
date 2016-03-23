@@ -24,28 +24,42 @@ var blink = function(square) {
   }, 200);
 };
 
+
 // making block blink seperately (and random?)
 var blinkArray = function() {
-  // for (var i = 0; i < arr.length; i++){
-  //   // Math.random.delay(3000, ((blink(arr[i]), 1700)));
-  //   Math.floor( Math.random( blink(arr[i]) + 4 ) );
-  // }
-  var counter = 0;
-  var timerID = setInterval(function() {
-    blink(arr[counter]);
-    counter++;
-  }, 200);
+    var blinkOrder = []
+    for (var i = 0; i < 4; i++){
+      var randomNumber = Math.floor(Math.random()*4)
+      blinkOrder.push(randomNumber)
+    }
 
-  if(counter === 4) {
-    return timerID;
+  var counter = 0;
+
+  function clearTimerId(){
+    clearInterval(timerID)
   }
 
-};
+  var timerID = setInterval(function() {
+    blink(arr[blinkOrder[counter]]);
+    counter++;
+    if(counter > 3){
+      clearTimerId()
+    }
+  }, 800);
 
-// DOM and node association
-$('.blocks').each(function(index, element) {
 
-});
+// console.log(randomNumber)
+    //return timerID;
+  };
+
+
+
+
+// var compPlay = function() {
+//   var record = [];
+//     timerID.push.record();
+//     return
+// }
 
 
 
