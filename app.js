@@ -11,6 +11,12 @@ $('#start').on('click', function(){
 
 });
 
+var playerSequence = [];
+var compSequence = [];
+// .join to turn them into strings
+
+var getSequence = 0
+
 //make array out of gameboard pieces
 var fourSquares = $('.gameboard').children();
 var arr = $.makeArray(fourSquares);
@@ -27,10 +33,10 @@ var blink = function(square) {
 
 // making block blink seperately (and random?)
 var blinkArray = function() {
-    var blinkOrder = []
+  var blinkOrder = []
     for (var i = 0; i < 4; i++){
       var randomNumber = Math.floor(Math.random()*4)
-      blinkOrder.push(randomNumber)
+      storedNum = blinkOrder.push(randomNumber)
     }
 
   var counter = 0;
@@ -38,19 +44,61 @@ var blinkArray = function() {
   function clearTimerId(){
     clearInterval(timerID)
   }
-
   var timerID = setInterval(function() {
     blink(arr[blinkOrder[counter]]);
     counter++;
     if(counter > 3){
-      clearTimerId()
+      var returned = [];
+      returned.push(blinkOrder);
+      console.log(returned)
+      clearTimerId();
     }
   }, 800);
-
+ var storedNum = 0;
 
 // console.log(randomNumber)
     //return timerID;
-  };
+
+
+
+
+// squares clicked and pushed to playerSequence
+
+ $( "#block1" ).mousedown(function() {
+  // alert( "Handler for .mousedown() called." );
+  $('#block1').addClass('flash');
+  setTimeout(function() {
+    $('#block1').removeClass('flash');
+  }, 200);
+  playerSequence.push('1');
+});
+ $( "#block2" ).mousedown(function() {
+  // alert( "Handler for .mousedown() called." );
+  $('#block2').addClass('flash');
+  setTimeout(function() {
+    $('#block2').removeClass('flash');
+  }, 200);
+  playerSequence.push('2');
+});
+ $( "#block3" ).mousedown(function() {
+  // alert( "Handler for .mousedown() called." );
+  $('#block3').addClass('flash');
+  setTimeout(function() {
+    $('#block3').removeClass('flash');
+  }, 200);
+  playerSequence.push('3');
+});
+ $( "#block4" ).mousedown(function() {
+  // alert( "Handler for .mousedown() called." );
+  $('#block4').addClass('flash');
+  setTimeout(function() {
+    $('#block4').removeClass('flash');
+  }, 200);
+  playerSequence.push('4');
+});
+
+
+};
 
 
 
