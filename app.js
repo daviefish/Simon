@@ -1,27 +1,21 @@
-
-
-
-
-
-
 $('#start').on('click', function(){
       $('#container').removeClass('visible').addClass('hidden');
       $('.gameboard').removeClass('hidden').addClass('visible');
       $('#container').hide();
+      window.alert('ready');
+      blinkArray();
 
 });
 
-var playerSequence = [];
-var compSequence = [];
-// .join to turn them into strings
 
-var getSequence = 0;
-var storedNum = [];
+
+
+var playerSequence = [];
+var blinkOrder = [];
 
 //make array out of gameboard pieces
 var fourSquares = $('.gameboard').children();
 var arr = $.makeArray(fourSquares);
-console.log(fourSquares.length);
 
 // blocks turning white
 var blink = function(square) {
@@ -31,19 +25,21 @@ var blink = function(square) {
   }, 200);
 };
 
+var newRound = function() {
+    for (var i = 0; i < blinkArray.length; i++){
+      this.blinkOrder.push( Math.floor( Math.random() * 4));
+    }
+  }
 
 // making block blink seperately (and random?)
 var blinkArray = function() {
-  var blinkOrder = [];
     for (var i = 0; i < 4; i++){
-      var randomNumber = Math.floor(Math.random()*4);
-      blinkOrder.push(randomNumber);
-      storedNum.push(blinkOrder);
+      this.blinkOrder.push( Math.floor( Math.random() * 4));
     }
 
   var counter = 0;
 
-  function clearTimerId(){
+function clearTimerId(){
     clearInterval(timerID);
   }
   var timerID = setInterval(function() {
@@ -52,14 +48,13 @@ var blinkArray = function() {
     if(counter > 3){
       var returned = [];
       returned.push(blinkOrder);
-      console.log(returned);
+      console.log(returned[0]);
       clearTimerId();
     }
   }, 800);
 
 
-// console.log(randomNumber)
-    //return timerID;
+
 
 
 
@@ -69,7 +64,7 @@ var blinkArray = function() {
 $( "#block1" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
   $('#block1').addClass('flash');
-  playerSequence.push(1);
+  playerSequence.push(0);
   setTimeout(function() {
     $('#block1').removeClass('flash');
   }, 200);
@@ -78,7 +73,7 @@ $( "#block1" ).mousedown(function() {
  $( "#block2" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
   $('#block2').addClass('flash');
-  playerSequence.push(2);
+  playerSequence.push(1);
   setTimeout(function() {
     $('#block2').removeClass('flash');
   }, 200);
@@ -87,7 +82,7 @@ $( "#block1" ).mousedown(function() {
  $( "#block3" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
   $('#block3').addClass('flash');
-  playerSequence.push(3);
+  playerSequence.push(2);
   setTimeout(function() {
     $('#block3').removeClass('flash');
   }, 200);
@@ -96,22 +91,20 @@ $( "#block1" ).mousedown(function() {
  $( "#block4" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
   $('#block4').addClass('flash');
-  playerSequence.push(4);
+  playerSequence.push(3);
   setTimeout(function() {
     $('#block4').removeClass('flash');
   }, 200);
 });
-console.log(playerSequence);
-
-
-
 };
-console.log(playerSequence);
-console.log(storedNum);
+
+
 
 var checkWinner = function() {
+  // console.log(playerSequence);
+  // console.log(blinkOrder);
 
-if (playerSequence === storedNum) {
+if (playerSequence.join() === blinkOrder.join()) {
   return "true";
 } else {
   return "false";
@@ -120,13 +113,6 @@ this.checkWinner();
 };
 
 
-
-
-// var compPlay = function() {
-//   var record = [];
-//     timerID.push.record();
-//     return
-// }
 
 
 
