@@ -84,9 +84,15 @@ body {
   display: block
 }
 
+.gameplay{
+  font-size: 30px;
+  margin: 5px;
+}
+
 .game {
-  font-size: 60px;
-  margin-top: 8px;
+  font-size: 100px;
+  margin-top: -10px;
+  margin-bottom: -10px;
   color: DarkBlue
 
 }
