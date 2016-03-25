@@ -83,12 +83,14 @@ var nextTurn = function() {
 
 $( "#block0" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
+  document.querySelector("#beep2").play();
   playerSequence.push(0);
   blink( $( "#block0" ) );
 });
 
 $( "#block1" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
+  document.querySelector("#beep6").play();
   blink( $( "#block1" ) );
   playerSequence.push(1);
 
@@ -96,6 +98,7 @@ $( "#block1" ).mousedown(function() {
 
 $( "#block2" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
+  document.querySelector("#beep7").play();
   blink( $( "#block2" ) );
   playerSequence.push(2);
 
@@ -103,6 +106,7 @@ $( "#block2" ).mousedown(function() {
 
 $( "#block3" ).mousedown(function() {
   // alert( "Handler for .mousedown() called." );
+  document.querySelector("#beep10").play();
   blink( $( "#block3" ) );
   playerSequence.push(3);
 });

@@ -57,23 +57,26 @@ body {
 }
 
 .blocks {
+  position: relative;
+  left: 240px;
+  top: 53px;
   margin: 0 auto;
   width: 200px;
   height: 200px;
   display: inline-block;
 }
 
-#block1 {
+#block0 {
   background-color: #3399ff;
 }
 
-#block2 {
-  background-color: #0066cc;
+#block1 {
+  background-color: #0040ff;
 }
-#block3 {
+#block2 {
   background-color: #3333ff;
 }
-#block4 {
+#block3 {
   background-color: #3366cc;
 }
 
