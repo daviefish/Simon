@@ -1,6 +1,12 @@
 var playerSequence = [];
 var blinkOrder = [];
 
+var checkLengths = function(){
+if (playerSequence.length === blinkOrder.length) {
+  checkWinner();
+}
+
+}
 //make array out of gameboard pieces
 var fourSquares = $('.blocks');
 var blockList = $.makeArray(fourSquares);
@@ -47,7 +53,10 @@ var checkWinner = function() {
     alert('correct');
     newRound();
   } else {
-    return;
+    alert('WRONG!');
+    playerSequence = [];
+    $('#container').show();
+    $('#container').addClass('visible');
   }
 };
 
@@ -63,7 +72,7 @@ $('#start').on('click', function(){
 
 var nextTurn = function() {
   $('.blocks').on('click', function() {
-    checkWinner();
+    checkLengths();
   });
 }
 
