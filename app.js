@@ -5,7 +5,6 @@ var blinkOrder = [];
 var fourSquares = $('.blocks');
 var blockList = $.makeArray(fourSquares);
 
-
 // blocks turning white
 var blink = function(square) {
   $(square).addClass('flash');
@@ -17,13 +16,13 @@ var blink = function(square) {
 var newRound = function() {
   var randomNumber = Math.floor( Math.random() * 4)
   blinkOrder.push( randomNumber );
+  blinkArray();
+  nextTurn();
 }
 
 // making block blink seperately (and random?)
 var blinkArray = function() {
-
-
-  var counter = 0;
+ var counter = 0;
 
   // function clearTimerId() {
   //   clearInterval(timerID);
@@ -37,18 +36,18 @@ var blinkArray = function() {
       clearInterval(timerID);
     }
   }, 800);
-
+  //
 }
 
 var checkWinner = function() {
   // console.log(playerSequence);
   // console.log(blinkOrder);
   if (playerSequence.join() === blinkOrder.join()) {
-    playerSequence = []
+    playerSequence = [];
+    alert('correct');
     newRound();
-    return true;
   } else {
-    return false;
+    return;
   }
 };
 
@@ -61,6 +60,15 @@ $('#start').on('click', function(){
   window.alert('ready');
   blinkArray();
 });
+
+var nextTurn = function() {
+  $('.blocks').on('click', function() {
+    checkWinner();
+  });
+}
+
+
+
 
 // squares clicked and pushed to playerSequence
 
