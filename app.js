@@ -6,7 +6,7 @@ if (playerSequence.length === blinkOrder.length) {
     checkWinner();
 }
 
-}
+};
 //make array out of gameboard pieces
 var fourSquares = $('.blocks');
 var blockList = $.makeArray(fourSquares);
@@ -20,11 +20,11 @@ var blink = function(square) {
 };
 
 var newRound = function() {
-  var randomNumber = Math.floor( Math.random() * 4)
+  var randomNumber = Math.floor( Math.random() * 4);
   blinkOrder.push( randomNumber );
   blinkArray();
   nextTurn();
-}
+};
 
 // making block blink seperately (and random?)
 var blinkArray = function() {
@@ -38,7 +38,7 @@ var blinkArray = function() {
     }
     }, 800);
   //
-}
+};
 
 var checkWinner = function() {
   if (playerSequence.join() === blinkOrder.join()) {
@@ -58,7 +58,7 @@ $('#start').on('click', function(){
   $('#container').removeClass('visible').addClass('hidden');
   $('.gameboard').removeClass('hidden').addClass('visible');
   $('#container').hide();
-  newRound()
+  newRound();
   window.alert('ready');
   blinkArray();
 });
@@ -67,10 +67,7 @@ var nextTurn = function() {
   $('.blocks').on('click', function() {
     checkLengths();
   });
-}
-
-
-
+};
 
 // squares clicked and pushed to playerSequence
 
@@ -98,4 +95,8 @@ $( "#block3" ).mousedown(function() {
   document.querySelector("#beep10").play();
   blink( $( "#block3" ) );
   playerSequence.push(3);
+});
+
+$('.reset').on('click', function() {
+  location.reset();
 });

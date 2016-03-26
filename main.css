@@ -166,6 +166,16 @@ body {
   }
 }
 
+.funnyPicture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  position: relative;
+  top: 150px;
+  left: 100px;
+  background: url("http://images.clipartpanda.com/smiley-face-clip-art-emotions-yToMBRxTE.jpeg");
+  background-size: cover;
+}
 
 
 
